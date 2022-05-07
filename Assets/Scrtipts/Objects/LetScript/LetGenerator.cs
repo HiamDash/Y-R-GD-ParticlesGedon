@@ -4,40 +4,33 @@ using UnityEngine;
 
 public class LetGenerator : MonoBehaviour
 {
-  //  private GameObject Object;
-   public float minX;
-   public float maxX;
-   public float minY;
-   public float maxY;
-   private float timeBetweenSpawn;
-   private float spwanTime; 
-   public float tbsMin;
-   public float tbsMax;
-   
-   public GameObject[] Objects;
-   private int random;
+  public float MinX;
+  public float MaxX;
+  public float MinY;
+  public float MaxY;
+  public float TimeBetweenSpawnMin;
+  public float TimeBetweenSpawnMax;
+  public GameObject[] Objects;
 
-    // void Start()
-    // {
-      
-   
-    // }
+  private int _random;
+  private float _timeBetweenSpawn;
+  private float _spawnTime; 
+
     void Update()
     {
-      timeBetweenSpawn = Random.Range(tbsMin, tbsMax);
-      if(Time.time > spwanTime)
+      _timeBetweenSpawn = Random.Range(TimeBetweenSpawnMin, TimeBetweenSpawnMax);
+      if(Time.time > _spawnTime)
       {
         Spawn();
-        spwanTime = Time.time + timeBetweenSpawn;
+        _spawnTime = Time.time + _timeBetweenSpawn;
       }  
     }
 
     void Spawn()
     {
-    random = Random.Range(0, Objects.Length);
-    float randomX = Random.Range(minX,maxX);
-    float randomY = Random.Range(minY,maxY);
-    Instantiate(Objects[random], transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
-    }
-    
+    _random = Random.Range(0, Objects.Length);
+    float randomX = Random.Range(MinX,MaxX);
+    float randomY = Random.Range(MinY,MaxY);
+    Instantiate(Objects[_random], transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
+    }    
 }

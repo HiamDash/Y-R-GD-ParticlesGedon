@@ -5,9 +5,7 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
    public GameObject Object;
-
    public int ObjectAmount;
-
    List<GameObject> Objects;
 
     void Start()

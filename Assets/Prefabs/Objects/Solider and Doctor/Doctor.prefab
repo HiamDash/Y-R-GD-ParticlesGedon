@@ -123,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2e00307fc0b714c991de299be7edf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  positionOfPatrol: 0
-  point: {fileID: 1478446636280219434}
-  stoppingDistance: 5
+  Speed: 7
+  PositionOfPatrol: 5
+  Point: {fileID: 1478446636280219434}
+  StoppingDistance: 1
 --- !u!95 &1478446634632109011
 Animator:
   serializedVersion: 3
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a57be63daba7fe4d9399472adcc8768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyPoint: {fileID: 0}
+  DestroyPoint: {fileID: 0}
 --- !u!1 &1478446634642181564
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478446634642181564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.32, y: 1.65, z: 1}
-  m_LocalScale: {x: 12.8267, y: 16.58625, z: 17.692}
+  m_LocalPosition: {x: -0.02, y: -1.22, z: 0}
+  m_LocalScale: {x: 12.8267, y: 3.109922, z: 17.692}
   m_Children: []
   m_Father: {fileID: 1478446634632109007}
   m_RootOrder: 1
@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478446636280219433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.3, y: -2.13, z: 1}
+  m_LocalPosition: {x: 23.17, y: -0.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1478446634632109007}

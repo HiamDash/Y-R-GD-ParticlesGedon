@@ -4,95 +4,84 @@ using UnityEngine;
 
 public class Patroler : MonoBehaviour
 {
-    public float speed;
-    public int positionOfPatrol;
-    public Transform point;
-    bool MovingRight;
-    Transform player;
-    public float stoppingDistance;
-    bool chill = false;
-    bool angry = false;
-    bool goBack = false;
-    // public Animation anim; 
+    public float Speed;
+    public int PositionOfPatrol;
+    public Transform Point;
+    public float StoppingDistance;
+
+    private Transform _player;
+    private bool _movingRight;
+    private bool _chill = false;
+    private bool _angry = false;
+    private bool _goBack = false;
 
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        // anim = GetComponent<Animation>();
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, point.position) < positionOfPatrol && angry == false)
+        if (Vector2.Distance(transform.position, Point.position) < PositionOfPatrol && _angry == false)
         {
-             chill = true;
-         }
-        if (Vector2.Distance(transform.position, player.position) < stoppingDistance)
+            _chill = true;
+        }
+        if (Vector2.Distance(transform.position, _player.position) < StoppingDistance)
         {
-            angry = true;
-            chill = false;
-            goBack = false;
+            _angry = true;
+            _chill = false;
+            _goBack = false;
         }
 
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (Vector2.Distance(transform.position, _player.position) > StoppingDistance)
         {
-            goBack = true;
-            angry = false;
-
+            _goBack = true;
+            _angry = false;
         }
 
-        if (chill == true)
+        if (_chill == true)
         {
-             Chill();
-
+            Chill();
         }
 
-        else if (angry == true)
+        else if (_angry == true)
         {
-             Angry();
-
-         }
-         else if (goBack == true)
-         {
-             GoBack();
-         }
+            Angry();
+        }
+        else if (_goBack == true)
+        {
+            GoBack();
+        }
 	}
 
      void Chill()
      {
-        if (transform.position.x > point.position.x + positionOfPatrol)
+        if (transform.position.x > Point.position.x + PositionOfPatrol)
         {
-            MovingRight = true;
+            _movingRight = true;
         }
-        else if (transform.position.x < point.position.x - positionOfPatrol)
+        else if (transform.position.x < Point.position.x - PositionOfPatrol)
         {
-            MovingRight = false;
+            _movingRight = false;
         }
-        if (MovingRight)
+        if (_movingRight)
         {
-            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+            transform.position = new Vector2(transform.position.x + Speed * Time.deltaTime, transform.position.y);
         }
         else
         {
-            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+            transform.position = new Vector2(transform.position.x - Speed * Time.deltaTime, transform.position.y);
         }
     }
 
     void Angry()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _player.position, Speed * Time.deltaTime);
     }
     void GoBack()
     {
-        transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Point.position, Speed * Time.deltaTime);
     }
-    //  private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //      if (other.CompareTag("Player"))
-    //     {
-    //         anim.Play("infection");
-    //     }
-    // }
 }

@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class GameObjectDestroyer : MonoBehaviour
 {
-    public GameObject destroyPoint;
+    public GameObject DestroyPoint;
 
     void Start()
     {
-        destroyPoint = GameObject.Find("DestroyPoint");    
+        DestroyPoint = GameObject.Find("DestroyPoint");    
     }
 
-    
     void Update()
     {
-        if(transform.position.x < destroyPoint.transform.position.x)
+        if(transform.position.x < DestroyPoint.transform.position.x)
         {
             Destroy(gameObject);
         }

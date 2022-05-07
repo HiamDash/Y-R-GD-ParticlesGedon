@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
     public int _score, HightScore;
-    public Text ScoreText;
+    public TMP_Text ScoreText;
 
     public GameObject ZomdiDoctor;
     public GameObject ZombiSoliders;
@@ -25,7 +26,7 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        ScoreText.text = ((int)_score).ToString();
+        ScoreText.text = ("Infected " + (int)_score).ToString();
     }
      
      private void OnTriggerEnter2D(Collider2D other)
